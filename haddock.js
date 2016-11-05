@@ -5,7 +5,8 @@ var fs = require('fs'),
 
 program
   .version("0.1.1")
-  .option('-l, --language <str>', 'language [EN|NL] default: EN', String, 'EN');
+  .option('-l, --language <str>', 'language [EN|NL] default: EN', String, 'EN')
+  .option('-s, --start <int>', 'start index default: 0', Number, 0);
 program.parse(process.argv);
 
 const ENDPOINT = 'https://mastodon.social';
@@ -30,9 +31,9 @@ const CURSES = fs.readFileSync(DATA_FILE)
     return ln && ln.length;
   });
 
-const TIMEOUT = 1000 * 60 * 15;
+const TIMEOUT = 1000 * 60 * 30;
 
-let current_curse = 0;
+let current_curse = program.start;
 
 function post (api_call, payload, endpoint=ENDPOINT) {
   return new Promise(function (resolve, reject) {
