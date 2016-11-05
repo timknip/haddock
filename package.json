@@ -1,6 +1,6 @@
 {
   "name": "haddock",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Captain Haddock's curses for Mastondon",
   "main": "./haddock.js",
   "repository": {
@@ -9,7 +9,8 @@
   },
   "dependencies": {
     "js-csp": "^0.8.0",
-    "request": "^2.78.0"
+    "request": "^2.78.0",
+    "commander": "^2.9.0"
   },
   "author": "Tim Knip",
   "contributors": [

@@ -1,11 +1,29 @@
 var fs = require('fs'),
     request = require('request'),
-    csp = require('js-csp');
+    csp = require('js-csp'),
+    program = require('commander');
+
+program
+  .version("0.1.1")
+  .option('-l, --language <str>', 'language [EN|NL] default: EN', String, 'EN');
+program.parse(process.argv);
 
 const ENDPOINT = 'https://mastodon.social';
 const OAUTH_ENDPOINT = 'https://mastodon.social/oauth/token';
 
-const CURSES = fs.readFileSync('haddock.txt')
+const LANGUAGES = {
+  EN: 'haddock.txt',
+  NL: 'haddock_nl.txt'
+};
+
+const DATA_FILE = LANGUAGES[program.language];
+
+if (!DATA_FILE) {
+  console.error(`no data file found for language ${program.language}`);
+  process.exit(0);
+}
+
+const CURSES = fs.readFileSync(DATA_FILE)
   .toString()
   .split(/[\r\n]/)
   .filter(ln => {
