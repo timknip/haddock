@@ -1,0 +1,22 @@
+{
+  "name": "haddock",
+  "version": "0.1.0",
+  "description": "Captain Haddock's curses for Mastondon",
+  "main": "./haddock.js",
+  "repository": {
+    "type"  : "git",
+    "url"   : "git+ssh://git@github.com:timknip/haddock.git"
+  },
+  "dependencies": {
+    "js-csp": "^0.8.0",
+    "request": "^2.78.0"
+  },
+  "author": "Tim Knip",
+  "contributors": [
+    {
+      "name"  : "Tim Knip",
+      "email" : "tim@floorplanner.com"
+    }
+  ],
+  "license": "UNLICENSED"
+}
